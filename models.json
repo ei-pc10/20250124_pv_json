@@ -1,0 +1,52 @@
+[
+  {
+    "id": "hosokawa_bob",
+    "latitude": 37.95623964531757,
+    "longitude": 139.3371717973987,
+    "gltfModel": "https://raw.githubusercontent.com/ei-pc10/show_models/main/hosokawa_bob.glb",
+    "scale": [8, 8, 8]
+  },
+  {
+    "id": "kottama-ya",
+    "latitude": 37.9584489943575,
+    "longitude": 139.34264597477087,
+    "gltfModel": "https://raw.githubusercontent.com/ei-pc10/show_models/main/kottamaya.glb",
+    "scale": [8, 8, 8]
+  },
+  {
+    "id": "shibatajyo",
+    "latitude": 37.95474094660365,
+    "longitude": 139.32598240586483,
+    "gltfModel": "https://raw.githubusercontent.com/ei-pc10/show_models/main/shibatajyo.glb",
+    "scale": [10, 10, 10]
+  },
+  {
+    "id": "renga",
+    "latitude": 37.94892959990337,
+    "longitude": 139.32432669317228,
+    "gltfModel": "https://raw.githubusercontent.com/ei-pc10/show_models/main/renga.glb",
+    "scale": [8, 8, 8]
+  },
+  {
+    "id": "shibata_logo",
+    "latitude": 37.94822800327645,
+    "longitude": 139.327420987668,
+    "gltfModel": "https://raw.githubusercontent.com/ei-pc10/show_models/main/shibata_logo.glb",
+    "scale": [5, 5, 5],
+    "position": [0, 50, 0]
+  },
+  {
+    "id": "suwanomori_clock",
+    "latitude": 37.944355706564394,
+    "longitude": 139.33082423638757,
+    "gltfModel": "https://raw.githubusercontent.com/ei-pc10/show_models/main/suwanomori_clock.glb",
+    "scale": [10, 10, 10]
+  },
+  {
+    "id": "shibata_siyakusyo",
+    "latitude": 37.94822800327645,
+    "longitude": 139.327420987668,
+    "gltfModel": "https://raw.githubusercontent.com/ei-pc10/show_models/main/siyakusyo1.glb",
+    "scale": [5, 5, 5]
+  }
+]
