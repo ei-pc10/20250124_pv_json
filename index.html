@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>AR.js with JSON-based Models</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
+    <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js'></script>
+    <script>
+      // JSONデータから3Dモデルを動的に追加
+      async function loadModels() {
+        const response = await fetch('models.json'); // JSONファイルを取得
+        const models = await response.json();
+
+        const scene = document.querySelector('a-scene');
+
+        models.forEach(model => {
+          const entity = document.createElement('a-entity');
+          entity.setAttribute('id', model.id);
+          entity.setAttribute('gps-entity-place', `latitude: ${model.latitude}; longitude: ${model.longitude}`);
+          entity.setAttribute('gltf-model', model.gltfModel);
+          entity.setAttribute('scale', model.scale.join(' '));
+          entity.setAttribute('look-at', '[camera]');
+
+          // 追加オプション（ポジションが指定されている場合のみ適用）
+          if (model.position) {
+            entity.setAttribute('position', model.position.join(' '));
+          }
+
+          // ポリゴンオフセットを追加
+          entity.setAttribute('polygon-offset', 'factor: 1; units: 1');
+          
+          scene.appendChild(entity);
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', loadModels);
+    </script>
+</head>
+<body style="margin: 0; overflow: hidden;">
+    <a-scene 
+      antialias="true" 
+      renderer="logarithmicDepthBuffer: true; alpha: true; precision: highp;" 
+      vr-mode-ui="enabled: false" 
+      embedded 
+      arjs="sourceType: webcam; debugUIEnabled: false;">
+      
+      <!-- カメラの設定 -->
+      <a-camera gps-camera rotation-sync></a-camera>
+
+      <!-- 環境光 -->
+      <a-light type="ambient" color="#ffffff" intensity="0.5"></a-light>
+
+      <!-- ディレクショナルライト -->
+      <a-light 
+        type="directional" 
+        position="1 2 0.5" 
+        intensity="0.8" 
+        castShadow="true">
+      </a-light>
+    </a-scene>
+</body>
+</html>
